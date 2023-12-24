@@ -1,0 +1,50 @@
+<div class="product-template container">  
+  <div class="product-images">
+    <div class="swiper-container-product-page swiper-container-{{- product.id -}}">
+      <div class="swiper-wrapper">
+        {% for image in product.images %}
+          <div class="swiper-slide">
+            <img src="{{ image.src | img_url: 'master' }}" alt="{{ image.alt | escape }}"  />
+
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="product-description-container">
+    <div class="product-title">
+        <h1>{{ product.title }}</h1>
+    </div>
+    <div class="product-price">
+        <h2>{{ product.price | money }}</h2>
+    </div>
+    <div class="product-bottom">
+      <div class="product-description">
+        {{ product.description }}
+      </div>
+      {% render 'add-to-cart-form' %}
+    </div>
+  </div>
+</div>
+
+<script>
+new Swiper(".swiper-container-{{- product.id -}}",{
+  slidesPerview: 1,
+  centeredSlides: true,
+  spaceBetween: 0,
+  loop: true,
+  
+  breakpoint: {
+    600: {
+      allowTouchMove: false,
+      speed: 0,
+      navigation: {
+        nextEl: ".swiper-button-next-{{- product.isd -}}",
+        prevEl: ".swiper-button-prev-{{- product.isd -}}",
+      }
+    }
+  }
+})
+</script>
+
