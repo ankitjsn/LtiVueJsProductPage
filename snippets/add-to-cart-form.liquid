@@ -1,5 +1,5 @@
 <form id="add-to-cart-form">
-    <template v-for="(option, i) in form.options" :key="i">
+    <template v-for="(option, i) in form.options" :key="i" >
         <div>
             {% render 'product-option' %}
         </div>
@@ -26,6 +26,7 @@
         created() {
             axios.get("/products/{{ product.handle }}.js")
             .then(results => {
+                console.log(results)
                 this.form.options = results.data.options.map(item =>({...item,visible: false}))
                 this.variants = results.data.variants
                 results.data.options.map(item => this.selected.push(item.values[0]))
@@ -40,11 +41,11 @@
             addToCart(event){
                 event.preventDefault()
                 let selectedVariant
+                console.log(this.form);
                 this.variants.forEach((variant, i) => {
                     if (variant.option1 === this.form.selections[0] && variant.option2 === this.form.selections[1] && variant.option3 === this.form.selections[2]){
                         selectedVariant = variant
                     }
-
                 })
 
                 let data = {

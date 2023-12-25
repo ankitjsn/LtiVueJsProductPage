@@ -23,7 +23,7 @@
     {% endif %}
   {% endif %}
 {% endcomment %}
-<header class="header " id="header">
+<header class="header" id="header">
     <div class="header-inner flex space-between">
         <div class="menu-drawer">
             <button class="menu-button">
@@ -48,17 +48,17 @@
 </header>
 
 <script>
-  if(document.querySelector('#header')){
+  if (document.querySelector('#header')){
     const headerCart = Vue.createApp({
-      delimiters: ['${', '}']
+      delimiters: ['${', '}'],
       data() {
         return {
-          cartData: store.state.cartSatate
+          cartData: store.state.cartState
         }
       },
       methods: {
         toggleMiniCart() {
-          toggleMiniCart().openCart()
+          toggleMiniCart.openCart()
         }
       },
       computed: {

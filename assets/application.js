@@ -7,7 +7,7 @@ const store = Vue.reactive({
 
     getCart() {
         axios.get('/cart.js')
-        .than(response =>{
+        .then(response =>{
             this.state.cartState.unshift(response.data)
         })
         .catch(error => {
@@ -26,6 +26,10 @@ const toggleMiniCart = {
         menuState.hidden = true
     }
 }
+
+const menuState = Vue.reactive({
+    hidden: true
+})
 
 const toggleMenu = {
     openMenu() {

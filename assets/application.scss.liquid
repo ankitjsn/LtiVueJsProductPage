@@ -205,5 +205,41 @@ product-option-item {
 }
 
 .mini-cart.hidden{
-    transform: tranlateX(100%)
+    transform: translateX(100%)
+}
+
+.mini-cart {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width:100%;
+    z-index: 99;
+    max-width: 250px;
+    background-color: white;
+    trasition-property: transform;
+}
+
+.cart-form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cart-button {
+    cursor: pointer;
+    position: relative;
+    transition: 0.15s;
+    z-index: 999;
+}
+
+.mini-cart-image-wapper {
+    width: 140px;
+    margin-right: 25px;
+    
+    img {
+        width: 100%;
+    }
 }
