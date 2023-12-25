@@ -1,0 +1,20 @@
+{
+  "sections": {
+      "template": {
+          "type": "product-template",
+          "blocks": {
+              "product-title": {
+                  "type": "product-title"
+              },
+              "product-price": {
+                  "type": "product-price"
+              },
+              "checkout-button": {
+                  "type": "product-description"
+              }
+          },
+          "block_order": ["product-title","product-price","checkout-button"]
+      }
+  },
+  "order": ["template"]
+}
