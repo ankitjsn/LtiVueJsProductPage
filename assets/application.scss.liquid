@@ -161,12 +161,12 @@ a {
     border: solid;
     cursor: pointer;
     border-color:black;
-    border-width: 1px 1pz 0;
+    border-width: 1px 1px 0;
     border-right-color: transparent;
     border-left-color: transparent;
     background-color:white;
     font-size: 16px;
-    width: 100%;
+    width: 90%;
     text-align:left;
 }
 
@@ -191,7 +191,7 @@ a {
     border:solid 1px black;
 }
 
-product-option-item {
+.product-option-item {
     padding: 25px;
     cousor: pointer;
 
@@ -205,7 +205,11 @@ product-option-item {
 }
 
 .mini-cart.hidden{
-    transform: translateX(100%)
+    transform: translateX(100%);
+}
+
+.mini-cart.hidden::before{
+    opacity: 0;
 }
 
 .mini-cart {
@@ -218,7 +222,26 @@ product-option-item {
     z-index: 99;
     max-width: 250px;
     background-color: white;
-    trasition-property: transform;
+    padding: 72px 25px 25px 25px;
+    transition-property: transform;
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-shadow: 0 4px 48px 36px #ededed;
+        -weblit-box-shadow: 0 4px 48px 36px #ededed;        
+        -moz-box-shadow: 0 4px 48px 36px #ededed;
+        transition-property: opacity;
+        z-index: -1;
+    }
+}
+
+.mini-cart, .mini-cart::before {
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(0.165, 0.84,0.44, 1);
 }
 
 .cart-form {
@@ -236,10 +259,54 @@ product-option-item {
 }
 
 .mini-cart-image-wapper {
-    width: 140px;
+    width: 80px;
     margin-right: 25px;
     
     img {
         width: 100%;
+    }
+}
+
+.mini-cart-rows {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    height: 100%;
+    overflow: auto;
+}
+
+.mini-cart-item {
+    display: flex;
+    padding: 25px 0px;
+}
+
+.mini-cart-item-right {
+    flex: 1;
+}
+
+.mini-cart-quantity {
+    height: 25px;
+    overflow: hidden;
+    margin-top: 25px;
+    position: relative;
+    border: 1px solid;
+    border-radius: 13px;
+
+    input {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 25px;
+    }
+
+    .mini-cart-quantity-button {
+        width: 25px;
+        position: absolute;
+        top: -4;
+        bottom: 0px;
+    }
+
+    .mini-cart-quantity-button:last-of-type {
+        left: auto;
+        right: 0;
     }
 }

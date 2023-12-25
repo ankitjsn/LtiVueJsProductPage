@@ -59,6 +59,28 @@
       methods: {
         toggleMiniCart() {
           toggleMiniCart.openCart()
+        },
+        decrement(item) {
+          const data = {
+            "id": item.key,
+            "quantity": item.quantity - 1
+          }
+          axios.post('/cart/change.js',data)
+          .then(response => {
+            store.getCart()
+          })
+          .catch(error => console.log(error))
+        },
+        increment(item) {
+          const data = {
+            "id": item.key,
+            "quantity": item.quantity + 1
+          }
+          axios.post('/cart/change.js',data)
+          .then(response => {
+            store.getCart()
+          })
+          .catch(error => console.log(error))
         }
       },
       computed: {
