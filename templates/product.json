@@ -9,11 +9,11 @@
               "product-price": {
                   "type": "product-price"
               },
-              "checkout-button": {
+              "product-description": {
                   "type": "product-description"
               }
           },
-          "block_order": ["product-title","product-price","checkout-button"]
+          "block_order": ["product-title","product-price","product-description"]
       }
   },
   "order": ["template"]
